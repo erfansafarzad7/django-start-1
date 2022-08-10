@@ -5,10 +5,10 @@
     <title>Home</title>
 </head>
 <body>
-<h3>Welcome {{ name|upper }}</h3>
-{%if name == 'jack%}
-<p>This is a tag example</p>
-{% endif %}
+
+    {% for todo in todos %}
+        <a href="#">{{todo.title}}</a></br>
+    {% endfor %}
 
 </body>
 </html>
