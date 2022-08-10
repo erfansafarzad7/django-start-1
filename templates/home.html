@@ -4,11 +4,10 @@
 {% block title %} Home {% endblock %}
 
 
-{% block list %}
+{% block content %}
     {% for todo in todos %}
         <div class="card">
             <a class="card-body" href="{% url 'details' todo.id %}">{{todo.title}}</a></br>
         </div>
-
     {% endfor %}
 {% endblock %}

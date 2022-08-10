@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 # from django.http import HttpResponse
 from .models import Todo
 from django.contrib import messages
+from .forms import CreateTodoForm
 
 # def say_hello(request):
 #     return HttpResponse('Hello World!')
@@ -24,3 +25,6 @@ def delete_todo(request, todo_id):
     messages.success(request, 'Done!!', 'success')
     return redirect('home')
 
+def create(request):
+    form = CreateTodoForm()
+    return render(request, 'form.html', {'form':form})
