@@ -4,7 +4,7 @@
 {% block title %} Home {% endblock %}
 
 
-{% block main %}
+{% block list %}
     {% for todo in todos %}
         <div class="card">
             <a class="card-body" href="{% url 'details' todo.id %}">{{todo.title}}</a></br>
