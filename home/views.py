@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 # from django.http import HttpResponse
 from .models import Todo
 
@@ -17,4 +17,8 @@ def get_todos(request):
 def details(request, todo_id):
     todo_details = Todo.objects.get(id=todo_id)
     return render(request, 'details.html', {'todo':todo_details})
+
+def delete_todo(request, todo_id):
+    Todo.objects.get(id=todo_id).delete()
+    return redirect('home')
 

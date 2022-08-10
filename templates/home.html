@@ -6,6 +6,9 @@
 
 {% block main %}
     {% for todo in todos %}
-        <a href="{% url 'details' todo.id %}">{{todo.title}}</a></br>
+        <div class="card">
+            <a class="card-body" href="{% url 'details' todo.id %}">{{todo.title}}</a></br>
+        </div>
+
     {% endfor %}
 {% endblock %}
