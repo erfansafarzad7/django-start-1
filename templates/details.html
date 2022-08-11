@@ -6,6 +6,7 @@
         <h1>{{todo.title}}</h1>
         <p>{{todo.c_time}}</p>
         <a class="btn btn-danger" href="{% url 'delete' todo.id %}">Delete</a>
+        <a class="btn btn-info" href="{% url 'update' todo.id %}">Update</a>
         <hr/>
         <br/>
         <h4>{{todo.body}}</h4>

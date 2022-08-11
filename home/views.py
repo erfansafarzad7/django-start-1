@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 # from django.http import HttpResponse
 from .models import Todo
 from django.contrib import messages
-from .forms import CreateTodoForm
+from .forms import CreateTodoForm, UpdateTodoForm
 
 # def say_hello(request):
 #     return HttpResponse('Hello World!')
@@ -36,3 +36,16 @@ def create(request):
     else:
         form = CreateTodoForm()
     return render(request, 'form.html', {'form':form})
+
+def update_todo(request, todo_id):
+    todo = Todo.objects.get(id=todo_id)
+    if request.method == 'POST':
+        form = UpdateTodoForm(request.POST, instance=todo)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "successfully Updated!..", 'success')
+            return redirect('details', todo_id)
+    else:
+        form = UpdateTodoForm(instance=todo)
+
+    return render(request, 'update.html', {'form':form})
