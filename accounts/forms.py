@@ -6,3 +6,8 @@ class RegisterForm(forms.Form):
     email = forms.EmailField()
     first_name = forms.CharField()
     last_name = forms.CharField()
+
+
+class LoginForm(forms.Form):
+    username = forms.CharField()
+    password = forms.CharField()

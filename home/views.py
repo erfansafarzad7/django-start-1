@@ -35,7 +35,7 @@ def create(request):
             return redirect('home')
     else:
         form = CreateTodoForm()
-    return render(request, 'form.html', {'form':form})
+    return render(request, 'createTodo.html', {'form':form})
 
 def update_todo(request, todo_id):
     todo = Todo.objects.get(id=todo_id)
